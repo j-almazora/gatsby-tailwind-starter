@@ -106,7 +106,7 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("tailwindcss")("./tailwind.config.js"),
-          require('autoprefixer'),
+          // require(`autoprefixer`),
         ],
       },
     },
