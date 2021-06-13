@@ -2,14 +2,19 @@ import React from "react"
 import Helmet from "../components/seo"
 import Layout from "../layout/layout"
 import OptimizeImage from "../images/optimize-image.svg"
+import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => {
   return (
     <Layout>
       <Helmet title="About" />
       <div className="container flex flex-col items-center justify-center py-6 mx-auto text-white md:flex-row md:py-40 md:px-24">
-        <div className="w-1/2">
-          <img src={OptimizeImage} alt="Built-in features" className="px-12" />
+        <div className="w-1/2 px-12">
+          <StaticImage
+            src="../images/optimize-image.svg"
+            alt="Built-in features"
+            placeholder="blurred"
+          />
         </div>
         <div className="w-1/2">
           <h1>Built-in Features</h1>

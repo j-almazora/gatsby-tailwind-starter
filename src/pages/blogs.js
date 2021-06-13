@@ -2,6 +2,7 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import Helmet from "../components/seo"
 import Layout from "../layout/layout"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Blogs = () => {
   const data = useStaticQuery(graphql`
@@ -38,10 +39,11 @@ const Blogs = () => {
               key={edge.node.id}
             >
               <Link to={edge.node.fields.slug}>
-                <img
+                <StaticImage
                   className="w-full"
                   src="https://tailwindcss.com/img/card-top.jpg"
                   alt="Sunset in the mountains"
+                  placeholder="blurred"
                 />
               </Link>
 
