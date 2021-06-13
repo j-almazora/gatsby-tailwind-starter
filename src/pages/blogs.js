@@ -1,7 +1,8 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
-import SEO from "../components/seo"
+import Helmet from "../components/seo"
 import Layout from "../layout/layout"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Blogs = () => {
   const data = useStaticQuery(graphql`
@@ -27,39 +28,36 @@ const Blogs = () => {
 
   return (
     <Layout>
-      <SEO title="Blogs" />
-      <div className="container mx-auto flex flex-col items-center md:flex-row">
+      <Helmet title="Blogs" />
+      <div className="container flex flex-col items-center mx-auto md:flex-row">
         {data.allMarkdownRemark.edges.map(edge => {
           const { title, date } = edge.node.frontmatter
 
           return (
             <div
-              className="bg-gray-800 text-white max-w-sm rounded overflow-hidden shadow-lg my-8 mx-2"
+              className="max-w-sm mx-2 my-8 overflow-hidden text-white bg-gray-800 rounded shadow-lg"
               key={edge.node.id}
             >
               <Link to={edge.node.fields.slug}>
-                <img
+                <StaticImage
                   className="w-full"
                   src="https://tailwindcss.com/img/card-top.jpg"
                   alt="Sunset in the mountains"
+                  placeholder="blurred"
                 />
               </Link>
 
               <div className="px-6 py-4">
                 <Link to={edge.node.fields.slug}>
-                  <div className="font-bold text-xl mb-2">
-                    {title}
-                  </div>
+                  <div className="mb-2 text-xl font-bold">{title}</div>
                 </Link>
-                <p className="text-gray-600 text-base">
-                  {date}
-                </p>
+                <p className="text-base text-gray-600">{date}</p>
               </div>
               <div className="px-6 py-4">
                 <p>{edge.node.excerpt}</p>
 
                 <Link to={edge.node.fields.slug}>
-                  <button className="border border-purple-500 hover:bg-purple-500 text-purple-500 hover:text-white font-bold mt-6 py-2 px-4 rounded">
+                  <button className="px-4 py-2 mt-6 font-bold text-purple-500 border border-purple-500 rounded hover:bg-purple-500 hover:text-white">
                     Button
                   </button>
                 </Link>

@@ -1,21 +1,29 @@
-import React from 'react'
-import SEO from '../components/seo'
-import Layout from '../layout/layout'
-import OptimizeImage from '../images/optimize-image.svg'
+import React from "react"
+import Helmet from "../components/seo"
+import Layout from "../layout/layout"
+import OptimizeImage from "../images/optimize-image.svg"
+import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => {
   return (
     <Layout>
-      <SEO title="About" />
-      <div className="container py-6 mx-auto flex flex-col md:flex-row md:py-40 md:px-24 justify-center items-center text-white">
-        <div className="w-1/2">
-          <img src={OptimizeImage} alt="Built-in features" className='px-12' />
+      <Helmet title="About" />
+      <div className="container flex flex-col items-center justify-center py-6 mx-auto text-white md:flex-row md:py-40 md:px-24">
+        <div className="w-1/2 px-12">
+          <StaticImage
+            src="../images/optimize-image.svg"
+            alt="Built-in features"
+            placeholder="blurred"
+          />
         </div>
-        <div className='w-1/2'>
+        <div className="w-1/2">
           <h1>Built-in Features</h1>
-          <ul className='list-disc list-inside'>
+          <ul className="list-disc list-inside">
             <li>Tailwind CSS</li>
-            <li>Plugins installed: SASS, Helmet, gatsby-source-filesystem, gatsby-transformer-remark, gatsby-sharp-images, and more</li>
+            <li>
+              Plugins installed: SASS, Helmet, gatsby-source-filesystem,
+              gatsby-transformer-remark, gatsby-sharp-images, and more
+            </li>
             <li>SEO ready using Helmet</li>
             <li>Basic layout: Header, Body, and Footer + 404</li>
             <li>Blog page initialized using Markdown files</li>

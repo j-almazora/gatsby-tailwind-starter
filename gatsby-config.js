@@ -12,7 +12,7 @@ module.exports = {
     twitterUsername: "@gatsbyjs",
 
     author: `John Almazora`,
-    year: 2020,
+    year: new Date().getFullYear(),
   },
 
   /* ----- Your plugins config here ----- */
@@ -68,6 +68,8 @@ module.exports = {
         ],
       },
     },
+
+    `gatsby-plugin-image`,
     
     {
       resolve: `gatsby-plugin-sharp`,
